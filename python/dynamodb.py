@@ -51,10 +51,7 @@ class Dynamodb():
                 'title': title,
             },
         )
-        if 'Item' in res:
-            return res['Item']
-        else:
-            return None
+        return res.get('Item') # same -> res.get('Item', None)
 
     def drop_table(self):
         self.table.delete()
