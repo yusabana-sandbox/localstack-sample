@@ -10,7 +10,7 @@ class Dynamodb():
 
     def create_table(self, table_name):
         table = self.origindb.create_table(
-            TableName='Movies',
+            TableName=table_name,
             KeySchema=[
                 {
                     'AttributeName': 'year',
@@ -57,5 +57,4 @@ class Dynamodb():
             return None
 
     def drop_table(self):
-        table = self.origindb.Table('Movies')
-        table.delete()
+        self.table.delete()
